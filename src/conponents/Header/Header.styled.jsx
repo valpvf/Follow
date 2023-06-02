@@ -1,6 +1,6 @@
 import styled from "@emotion/styled";
 
-export const HeaderStyled = styled.section`
+export const HeaderStyled = styled.header`
   /* position: fixed; */
   width: 100vw;
   padding: 14px;
