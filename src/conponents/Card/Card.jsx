@@ -38,7 +38,17 @@ const Card = () => {
               <RoundStyled />
             </BoxStyled>
             <InfoLineStyled>{el.tweets} TWEETS</InfoLineStyled>
-            <InfoLineStyled>{el.followers} FOLLOWERS</InfoLineStyled>
+            <InfoLineStyled>
+              {el.followers < 1000
+                ? el.followers
+                : `${el.followers
+                    .toString()
+                    .substr(
+                      0,
+                      el.followers.toString().length - 3
+                    )},${el.followers.toString().substr(-3)}`}{"  "}
+              FOLLOWERS
+            </InfoLineStyled>
             <BtnStyled
               type="button"
               onClick={() =>
