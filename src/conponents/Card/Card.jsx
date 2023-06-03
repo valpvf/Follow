@@ -13,19 +13,22 @@ import {
 } from "./Card.styled";
 import { info, sprite } from "../../img/index";
 import {
-  selectorClicked,
+  // selectorClicked,
   selectorUsers,
 } from "../../redux/userSelector";
 import { useDispatch, useSelector } from "react-redux";
+import { changeUser } from "../../redux/userSlice";
 
 const Card = () => {
   const userRender = useSelector(selectorUsers);
-  const isClicked = useSelector(selectorClicked);
+  // const isClicked = useSelector(selectorClicked);
   const dispatch = useDispatch();
-  const handleClick = () => {
-    dispatch((state) => !state.isClicked);
-  };
-
+  // { type: 'change', payload: !isClicked }
+  // const handleClick = () => {
+  //   // console.dir('e.target', e.target.value);
+  //   dispatch((state) => !state.isClicked);
+  // };
+console.log(userRender);
   return (
     <ListStyled>
       {userRender.map((el) => (
@@ -45,8 +48,12 @@ const Card = () => {
             </BoxStyled>
             <InfoLineStyled>{el.tweets} TWEETS</InfoLineStyled>
             <InfoLineStyled>{el.followers} FOLLOWERS</InfoLineStyled>
-            <BtnStyled type="button" onClick={handleClick} color={isClicked}>
-              {isClicked ? "Following" : "Follow"}
+            <BtnStyled
+              type="button"
+              onClick={() => dispatch(changeUser({ type: "changeUser", payload: el.id}))}
+              isChanged={el.isChanged}
+            >
+              {el.isChanged ? "Following" : "Follow"}
             </BtnStyled>
           </WrapUser>
         </ItemStyled>

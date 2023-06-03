@@ -17,7 +17,7 @@ export const ItemStyled = styled.li`
   /* gap: 48px; */
   width: 380px;
   height: 460px;
-  padding: 20px 20px 36px;
+  /* padding: 20px 20px 36px; */
   background: linear-gradient(
     114.99deg,
     #471ca9 -0.99%,
@@ -100,10 +100,7 @@ export const BtnStyled = styled.button`
   cursor: pointer;
   text-transform: uppercase;
   background: ${(props) =>
-    props.color === false ? "#ebd8ff" : "#5CD3A8"};
+    props.isChanged === false ? "#ebd8ff" : "#5CD3A8"};
   box-shadow: 0px 3.43693px 3.43693px rgba(0, 0, 0, 0.25);
   border-radius: 10.3108px;
-  &{isClicked} {
-
-  }
 `;
