@@ -12,23 +12,14 @@ import {
   WrapUser,
 } from "./Card.styled";
 import { info, sprite } from "../../img/index";
-import {
-  // selectorClicked,
-  selectorUsers,
-} from "../../redux/userSelector";
+import { selectorUsers } from "../../redux/userSelector";
 import { useDispatch, useSelector } from "react-redux";
 import { changeUser } from "../../redux/userSlice";
 
 const Card = () => {
   const userRender = useSelector(selectorUsers);
-  // const isClicked = useSelector(selectorClicked);
   const dispatch = useDispatch();
-  // { type: 'change', payload: !isClicked }
-  // const handleClick = () => {
-  //   // console.dir('e.target', e.target.value);
-  //   dispatch((state) => !state.isClicked);
-  // };
-console.log(userRender);
+
   return (
     <ListStyled>
       {userRender.map((el) => (
@@ -50,7 +41,11 @@ console.log(userRender);
             <InfoLineStyled>{el.followers} FOLLOWERS</InfoLineStyled>
             <BtnStyled
               type="button"
-              onClick={() => dispatch(changeUser({ type: "changeUser", payload: el.id}))}
+              onClick={() =>
+                dispatch(
+                  changeUser({ type: "changeUser", payload: el.id })
+                )
+              }
               isChanged={el.isChanged}
             >
               {el.isChanged ? "Following" : "Follow"}

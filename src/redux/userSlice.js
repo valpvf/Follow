@@ -43,27 +43,19 @@ const userSlice = createSlice(
         const idx = state.user.findIndex(
           (el) => el.id === payload.payload
         );
-
-        state.user[idx] = {...state.user[idx], isChanged: true, followers: 1}
-        // console.log(idx, payload.payload);
-        // state.user[0].isChanged = true;
-        // state.user = state.user.map((el) => {
-        //   if (el.id === payload.payload) {
-        //     el.isChanged === false
-        //       ? {
-        //           ...el,
-        //           isChanged: true,
-        //           ,
-        //         }
-        //       : {
-        //           ...el,
-        //           isChanged: false,
-        //           followers: el.followers - 1,
-        //         };
-        //   } else {
-        //     return el;
-        //   }
-        // });
+        const follower = state.user[idx].followers;
+        state.user[idx] =
+          state.user[idx].isChanged === false
+            ? {
+                ...state.user[idx],
+                isChanged: true,
+                followers: follower + 1,
+              }
+            : {
+                ...state.user[idx],
+                isChanged: false,
+                followers: follower - 1,
+              };
       },
     },
   },
