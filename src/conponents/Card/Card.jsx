@@ -15,14 +15,20 @@ import { info, sprite } from "../../img/index";
 import { selectorUsers } from "../../redux/userSelector";
 import { useDispatch, useSelector } from "react-redux";
 import { changeUser } from "../../redux/userSlice";
-import { useMemo } from "react";
+import { useEffect, useMemo } from "react";
+import { getUser } from "../../redux/userOperations";
 
-const Card = () => {
+const Card = ({part}) => {
   const dispatch = useDispatch();
   const allUsers = useSelector(selectorUsers);
+
+  useEffect(() => {
+    allUsers.length === 0 && dispatch(getUser(1));
+  }, [dispatch, allUsers.length]);
+
   const userRender = useMemo(() => {
-    return allUsers;
-  }, [allUsers]);
+    return allUsers.slice(0, part*3);
+  }, [allUsers, part]);
 
   const handleClick = (data) => {
     dispatch(changeUser({ type: "changeUser", payload: data }));

@@ -3,34 +3,6 @@ import { getUser } from "./userOperations";
 
 const initialState = {
   user: [],
-  // {
-  //   user: "Tommy Beier",
-  //   tweets: 43792,
-  //   followers: 35050,
-  //   avatar:
-  //     "https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/75.jpg",
-  //   id: "1",
-  //   isChanged: false,
-  // },
-  // {
-  //   user: "Ramona O'Reilly",
-  //   tweets: 83666,
-  //   followers: 44440,
-  //   avatar:
-  //     "https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/1186.jpg",
-  //   id: "2",
-  //   isChanged: false,
-  // },
-  // {
-  //   user: "Candace Parker",
-  //   tweets: 333,
-  //   followers: 39930,
-  //   avatar:
-  //     "https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/1159.jpg",
-  //   id: "3",
-  //   isChanged: false,
-  // },
-  // ],
   isLoading: false,
   error: null,
 };
@@ -63,18 +35,17 @@ const userSlice = createSlice({
       .addCase(getUser.pending, (state) => {
         state.isLoading = true;
       })
-      .addCase(getUser.fulfilled, (state, { payload }) => {
+      .addCase(getUser.fulfilled, (state, { payload, meta }) => {
         state.isLoading = false;
         state.error = null;
-        // const pushUser = payload.map((el) => ({
-        //   ...el,
-        //   isChanged: false,
-        // }));
-        console.log('render');
-        state.user = payload.map((el) => ({
+        const pushUser = payload.map((el) => ({
           ...el,
           isChanged: false,
         }));
+        console.log("render");
+        meta.arg === 1
+          ? (state.user = pushUser)
+          : state.user.push(...pushUser);
       })
       .addCase(getUser.rejected, (state, { payload }) => {
         state.isLoading = false;
@@ -82,5 +53,5 @@ const userSlice = createSlice({
       });
   },
 });
-export const { changeUser } = userSlice.actions;
+export const { changeUser, changePage } = userSlice.actions;
 export default userSlice.reducer;

@@ -3,9 +3,9 @@ import { getUserApi } from "../services/mockApi";
 
 export const getUser = createAsyncThunk(
   "user/get",
-  async (_, { rejectWithValue, dispatch }) => {
+  async (page, { rejectWithValue, dispatch }) => {
     try {
-        const data = await getUserApi();
+        const data = await getUserApi(page);
       return data;
     } catch (error) {
     //   dispatch(errorHandler({ error, cb: getUser }));
