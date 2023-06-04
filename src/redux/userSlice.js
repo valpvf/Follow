@@ -66,7 +66,15 @@ const userSlice = createSlice({
       .addCase(getUser.fulfilled, (state, { payload }) => {
         state.isLoading = false;
         state.error = null;
-        state.user = payload.map(el => ({...el, isChanged: false}));
+        // const pushUser = payload.map((el) => ({
+        //   ...el,
+        //   isChanged: false,
+        // }));
+        console.log('render');
+        state.user = payload.map((el) => ({
+          ...el,
+          isChanged: false,
+        }));
       })
       .addCase(getUser.rejected, (state, { payload }) => {
         state.isLoading = false;

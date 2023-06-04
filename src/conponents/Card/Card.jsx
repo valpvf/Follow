@@ -15,27 +15,33 @@ import { info, sprite } from "../../img/index";
 import { selectorUsers } from "../../redux/userSelector";
 import { useDispatch, useSelector } from "react-redux";
 import { changeUser } from "../../redux/userSlice";
+import { useMemo } from "react";
 
 const Card = () => {
-  const userRender = useSelector(selectorUsers);
   const dispatch = useDispatch();
+  const allUsers = useSelector(selectorUsers);
+  const userRender = useMemo(() => {
+    return allUsers;
+  }, [allUsers]);
+
+  const handleClick = (data) => {
+    dispatch(changeUser({ type: "changeUser", payload: data }));
+  };
 
   return (
     <ListStyled>
       {userRender.map((el) => (
         <ItemStyled key={el.id}>
-          <div>
-            <LogoStyled>
-              <use href={sprite + "#icon-logo"}></use>
-            </LogoStyled>
-            <InfoStyled src={info} alt="Info" />
-          </div>
+          <LogoStyled>
+            <use href={sprite + "#icon-logo"}></use>
+          </LogoStyled>
+          <InfoStyled src={info} alt="Info" />
           <WrapUser>
             <BoxStyled>
               <LineStyled />
               <RoundStyled />
-              <PhotoStyled src={el.avatar} alt={el.user} />
               <RoundStyled />
+              <PhotoStyled src={el.avatar} alt={el.user} />
             </BoxStyled>
             <InfoLineStyled>{el.tweets} TWEETS</InfoLineStyled>
             <InfoLineStyled>
@@ -46,16 +52,13 @@ const Card = () => {
                     .substr(
                       0,
                       el.followers.toString().length - 3
-                    )},${el.followers.toString().substr(-3)}`}{"  "}
+                    )},${el.followers.toString().substr(-3)}`}
+              {"  "}
               FOLLOWERS
             </InfoLineStyled>
             <BtnStyled
               type="button"
-              onClick={() =>
-                dispatch(
-                  changeUser({ type: "changeUser", payload: el.id })
-                )
-              }
+              onClick={(e) => handleClick(el.id)}
               isChanged={el.isChanged}
             >
               {el.isChanged ? "Following" : "Follow"}

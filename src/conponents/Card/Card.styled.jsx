@@ -6,19 +6,17 @@ export const ListStyled = styled.ul`
   justify-content: center;
   gap: 48px;
   padding: 0;
-  margin: 0;
-  list-style: none;
 `;
 
 export const ItemStyled = styled.li`
+  position: relative;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
-  /* gap: 48px; */
   width: 380px;
   height: 460px;
-  /* padding: 20px 20px 36px; */
+  padding-top: 28px;
+  padding-bottom: 36px;
   background: linear-gradient(
     114.99deg,
     #471ca9 -0.99%,
@@ -30,23 +28,23 @@ export const ItemStyled = styled.li`
 `;
 
 export const LogoStyled = styled.svg`
+  position: absolute;
   width: 76px;
   height: 22px;
+  top: 20px;
+  left: 20px;
   fill: rgba(255, 255, 255, 0.3);
 `;
 
 export const InfoStyled = styled.img`
-  display: block;
   width: 308px;
   height: 168px;
-  margin: 0 auto;
 `;
 
 export const WrapUser = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 26px;
 `;
 
 export const BoxStyled = styled.div`
@@ -70,10 +68,14 @@ export const RoundStyled = styled.div`
   width: 80px;
   height: 80px;
   border-radius: 50%;
+  background: #ebd8ff;
+  box-shadow: 0px 4.39163px 4.39163px rgba(0, 0, 0, 0.06),
+    inset 0px -2.19582px 4.39163px #ae7be3,
+    inset 0px 4.39163px 3.29372px #fbf8ff;
   &:last-of-type {
     width: 64px;
     height: 64px;
-    border: 8px solid #ebd8ff;
+    background: #5736a3;
   }
 `;
 
@@ -85,21 +87,28 @@ export const PhotoStyled = styled.img`
 `;
 
 export const InfoLineStyled = styled.p`
-  margin: 0;
-  font-family: "Montserrat";
-  font-weight: 500;
+  margin-top: 26px;
   font-size: 20px;
   line-height: 24px;
   text-transform: uppercase;
   color: #ebd8ff;
+
+  &:last-of-type {
+    margin-top: 16px;
+  }
 `;
 
 export const BtnStyled = styled.button`
   width: 196px;
   padding: 14px 0;
+  margin-top: 26px;
   text-align: center;
-  cursor: pointer;
+  font-family: "Montserrat";
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 1.22;
   text-transform: uppercase;
+  color: #373737;
   background: ${(props) =>
     props.isChanged === false ? "#ebd8ff" : "#5CD3A8"};
   box-shadow: 0px 3.43693px 3.43693px rgba(0, 0, 0, 0.25);
