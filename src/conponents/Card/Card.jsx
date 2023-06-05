@@ -28,7 +28,7 @@ const Card = () => {
 
   useEffect(() => {
     allUsers.length === 0 && dispatch(getUser());
-  }, [dispatch, part]);
+  }, [dispatch, allUsers.length]);
 
   const userRender = useMemo(() => {
     return allUsers.slice(0, part * 3);

@@ -1,8 +1,7 @@
-import { useState } from "react";
+// import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 import Card from "../conponents/Card/Card";
-import { getUser } from "../redux/userOperations";
 import {
   BtnDropStyled,
   BtnMoreStyled,
@@ -19,7 +18,7 @@ const Tweets = () => {
   const totalPart = useSelector(selectorUsers).length / 3;
   const part = useSelector(selectorPart);
 
-  const [page, setPage] = useState(1);
+  // const [page, setPage] = useState(1);
 
   const handleClick = () => {
     dispatch(changePart(1));
