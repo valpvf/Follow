@@ -21,7 +21,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useMemo } from "react";
 import { changeUser, getUser } from "../../redux/userOperations";
 
-const Card = () => {
+const Card = ({ mark }) => {
   const dispatch = useDispatch();
   const allUsers = useSelector(selectorUsers);
   const part = useSelector(selectorPart);
@@ -34,6 +34,11 @@ const Card = () => {
     return allUsers.slice(0, part * 3);
   }, [allUsers, part]);
 
+  const render =
+    mark === ""
+      ? userRender
+      : userRender.filter((el) => el.isChanged === mark);
+
   const handleClick = (data) => {
     console.log("data", data);
     dispatch(changeUser(data));
@@ -41,7 +46,7 @@ const Card = () => {
 
   return (
     <ListStyled>
-      {userRender.map((el) => (
+      {render.map((el) => (
         <ItemStyled key={el.id}>
           <LogoStyled>
             <use href={sprite + "#icon-logo"}></use>

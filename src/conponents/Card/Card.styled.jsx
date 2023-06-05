@@ -5,7 +5,6 @@ export const ListStyled = styled.ul`
   flex-wrap: wrap;
   justify-content: center;
   gap: 48px;
-  padding: 0;
 `;
 
 export const ItemStyled = styled.li`
