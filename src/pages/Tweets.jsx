@@ -6,21 +6,24 @@ import { getUser } from "../redux/userOperations";
 import {
   BtnDropStyled,
   BtnMoreStyled,
+  CheckStyled,
   DropContentStyled,
   DropdownStyled,
   SectionStyled,
 } from "./Tweets.syled";
-import { selectorUsers } from "../redux/userSelector";
+import { selectorPart, selectorUsers } from "../redux/userSelector";
+import { changePart } from "../redux/userSlice";
 
 const Tweets = () => {
   const dispatch = useDispatch();
-  const totalPage = useSelector(selectorUsers).length / 3;
-  const [part, setPart] = useState(1);
+  const totalPart = useSelector(selectorUsers).length / 3;
+  const part = useSelector(selectorPart);
+
   const [page, setPage] = useState(1);
 
   const handleClick = () => {
-    setPart(part + 1);
-    page <= totalPage && dispatch(getUser(page));
+    dispatch(changePart(1));
+    // page <= totalPage && dispatch(getUser(page));
   };
   console.log();
   return (
@@ -28,13 +31,13 @@ const Tweets = () => {
       <DropdownStyled>
         <BtnDropStyled>Show</BtnDropStyled>
         <DropContentStyled>
-          <a href="/">all</a>
-          <a href="/">follow</a>
-          <a href="/">followings</a>
+          <CheckStyled type="radio">all</CheckStyled>
+          <CheckStyled type="radio">follow</CheckStyled>
+          <CheckStyled type="radio">followings</CheckStyled>
         </DropContentStyled>
       </DropdownStyled>
       <Card part={part} />
-      {Boolean(totalPage) && Math.floor(totalPage) - part >= 0 && (
+      {Boolean(totalPart) && Math.floor(totalPart) - part >= 0 && (
         <BtnMoreStyled type="button" onClick={handleClick}>
           Load more
         </BtnMoreStyled>

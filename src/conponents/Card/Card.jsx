@@ -12,26 +12,31 @@ import {
   WrapUser,
 } from "./Card.styled";
 import { info, sprite } from "../../img/index";
-import { selectorUsers } from "../../redux/userSelector";
+import {
+  selectorPart,
+  selectorUsers,
+} from "../../redux/userSelector";
 import { useDispatch, useSelector } from "react-redux";
-import { changeUser } from "../../redux/userSlice";
+// import { changeUser } from "../../redux/userSlice";
 import { useEffect, useMemo } from "react";
-import { getUser } from "../../redux/userOperations";
+import { changeUser, getUser } from "../../redux/userOperations";
 
-const Card = ({part}) => {
+const Card = () => {
   const dispatch = useDispatch();
   const allUsers = useSelector(selectorUsers);
+  const part = useSelector(selectorPart);
 
   useEffect(() => {
-    allUsers.length === 0 && dispatch(getUser(1));
-  }, [dispatch, allUsers.length]);
+    allUsers.length === 0 && dispatch(getUser());
+  }, [dispatch, part]);
 
   const userRender = useMemo(() => {
-    return allUsers.slice(0, part*3);
+    return allUsers.slice(0, part * 3);
   }, [allUsers, part]);
 
   const handleClick = (data) => {
-    dispatch(changeUser({ type: "changeUser", payload: data }));
+    console.log("data", data);
+    dispatch(changeUser(data));
   };
 
   return (
@@ -64,7 +69,9 @@ const Card = ({part}) => {
             </InfoLineStyled>
             <BtnStyled
               type="button"
-              onClick={(e) => handleClick(el.id)}
+              onClick={(e) =>
+                handleClick([el.id, el.followers, el.isChanged, part])
+              }
               isChanged={el.isChanged}
             >
               {el.isChanged ? "Following" : "Follow"}

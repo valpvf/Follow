@@ -5,12 +5,14 @@ export const SectionStyled = styled.section`
     width: 1236px;
     margin: 0 auto;
 `
-export const DropdownStyled = styled.div`
-  position: relative;
-  display: block;
-  margin: 0 auto;
+export const DropdownStyled = styled.form`
+  position: fixed;
+  display: inline-block;
+  top: 50px;
+  left: 50px;
+  
 
-  & a:hover {
+  & CheckStyled:hover {
     background-color: #f1f1f1;
   }
 
@@ -22,6 +24,10 @@ export const DropdownStyled = styled.div`
     background-color: #3e8e41;
   }
 `;
+
+export const CheckStyled = styled.button`
+  
+`
 
 export const BtnDropStyled = styled.button`
   background-color: #4caf50;
@@ -39,14 +45,16 @@ export const DropContentStyled = styled.div`
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   z-index: 1;
 
-  & a {
+  & button {
     color: black;
     padding: 12px 16px;
     text-decoration: none;
     display: block;
   }
 
-  & a:hover {
+  & button:hover {
+    display: flex;
+    flex-direction: column;
     background-color: #f1f1f1;
   }
 `;

@@ -1,33 +1,36 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { getUser } from "./userOperations";
+import { changeUser, getUser } from "./userOperations";
 
 const initialState = {
   user: [],
   isLoading: false,
   error: null,
+  isChnged: false,
+  part: 1,
 };
 
 const userSlice = createSlice({
   name: "user",
   initialState,
   reducers: {
-    changeUser: (state, { payload }) => {
-      const idx = state.user.findIndex(
-        (el) => el.id === payload.payload
-      );
-      const follower = state.user[idx].followers;
-      state.user[idx] =
-        state.user[idx].isChanged === false
-          ? {
-              ...state.user[idx],
-              isChanged: true,
-              followers: follower + 1,
-            }
-          : {
-              ...state.user[idx],
-              isChanged: false,
-              followers: follower - 1,
-            };
+    changePart: (state, { payload }) => {
+      state.part += payload;
+  // const idx = state.user.findIndex(
+  //       (el) => el.id === payload.payload
+  //     );
+  //     const follower = state.user[idx].followers;
+  //     state.user[idx] =
+  //       state.user[idx].isChanged === false
+  //         ? {
+  //             ...state.user[idx],
+  //             isChanged: true,
+  //             followers: follower + 1,
+  //           }
+  //         : {
+  //             ...state.user[idx],
+  //             isChanged: false,
+  //             followers: follower - 1,
+  //           };
     },
   },
   extraReducers: (builder) => {
@@ -42,7 +45,6 @@ const userSlice = createSlice({
           ...el,
           isChanged: false,
         }));
-        console.log("render");
         meta.arg === 1
           ? (state.user = pushUser)
           : state.user.push(...pushUser);
@@ -50,8 +52,25 @@ const userSlice = createSlice({
       .addCase(getUser.rejected, (state, { payload }) => {
         state.isLoading = false;
         state.error = payload;
+      })
+      .addCase(changeUser.pending, (state) => {
+        state.isLoading = true;
+      })
+      .addCase(changeUser.fulfilled, (state, { payload, meta }) => {
+        console.log("payload", payload);
+        state.isLoading = false;
+        state.error = null;
+        state.part = meta.arg[3];
+        const idx = state.user.findIndex(
+          (el) => el.id === meta.arg[0]
+        );
+        state.user[idx] = { ...payload, isChanged: !meta.arg[2] };
+      })
+      .addCase(changeUser.rejected, (state, { payload }) => {
+        state.isLoading = false;
+        state.error = payload;
       });
   },
 });
-export const { changeUser, changePage } = userSlice.actions;
+export const { changePart } = userSlice.actions;
 export default userSlice.reducer;

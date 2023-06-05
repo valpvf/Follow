@@ -1,5 +1,5 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import { getUserApi } from "../services/mockApi";
+import { changeUserApi, getUserApi } from "../services/mockApi";
 
 export const getUser = createAsyncThunk(
   "user/get",
@@ -9,6 +9,20 @@ export const getUser = createAsyncThunk(
       return data;
     } catch (error) {
     //   dispatch(errorHandler({ error, cb: getUser }));
+      return rejectWithValue(error.message);
+    }
+  }
+);
+
+export const changeUser = createAsyncThunk(
+  "user/change",
+  async ([id, result, flag], { rejectWithValue, dispatch }) => {
+    try {
+      result = flag ? result-1 : result+1;
+      const data = await changeUserApi(id, result);
+      return data;
+    } catch (error) {
+      //   dispatch(errorHandler({ error, cb: getUser }));
       return rejectWithValue(error.message);
     }
   }
