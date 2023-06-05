@@ -1,17 +1,17 @@
-import { Link } from "react-router-dom";
-import { ImgStyled, SectionHomeStyled } from "./pages.syled";
+import { GoTweetsImgStyled, Header1Styled, Header2Styled, ImgStyled, LinkToTweetsStyled, SectionHomeStyled } from "./pages.syled";
 import { wellcome } from "../img";
 
 const Home = () => {
   return (
     <SectionHomeStyled>
       <ImgStyled src={wellcome} alt="" />
-      <h2>
-        Hi!
-        </h2> <h1>We are delighted to welcome you to our site.
-      </h1>
-      <h2>Now, shall we mark our preferred tweets?</h2>
-      <Link to="/tweets">Go to the Tweets page</Link>
+      <Header2Styled>Hi!</Header2Styled>{" "}
+      <Header1Styled>We are delighted to welcome you to our site.</Header1Styled>
+      <Header2Styled>Now, shall we mark our preferred tweets?</Header2Styled>
+      <LinkToTweetsStyled to="/tweets">
+        Go to the Tweets page
+        <GoTweetsImgStyled />
+      </LinkToTweetsStyled>
     </SectionHomeStyled>
   );
 };

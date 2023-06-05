@@ -2,11 +2,15 @@ import styled from "@emotion/styled";
 import { BtnStyled } from "../conponents/Card/Card.styled";
 import AddHomeWorkIcon from "@mui/icons-material/AddHomeWork";
 import Box from "@mui/material/Box";
+import InputLabel from "@mui/material/InputLabel";
+import { MenuItem, Select } from "@mui/material";
+import FollowTheSignsIcon from "@mui/icons-material/FollowTheSigns";
+
 import { Link } from "react-router-dom";
 
 export const WrapStyled = styled.div`
   padding: 15px;
-`
+`;
 
 export const SectionHomeStyled = styled.section`
   width: 100vw;
@@ -20,7 +24,7 @@ export const SectionHomeStyled = styled.section`
 
 export const ImgStyled = styled.img`
   width: 300px;
-  margin: 0 auto;
+  margin: 10px auto 50px;
 `;
 
 export const SectionStyled = styled.section`
@@ -37,62 +41,26 @@ export const LinkStyled = styled(Link)`
   font-size: 26px;
 `;
 
+export const LinkToTweetsStyled = styled(Link)`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 60px;
+  color: #004381;
+  font-size: 24px;
+`;
+
+export const GoTweetsImgStyled = styled(FollowTheSignsIcon)`
+  font-size: 48px;
+  margin-left: 10px;
+  /* text-decoration: none; */
+  color: #004381;
+`;
 export const GoHomeImgStyled = styled(AddHomeWorkIcon)`
   font-size: 56px;
   margin-right: 10px;
   /* text-decoration: none; */
   color: #5736a3;
-`;
-
-export const DropdownStyled = styled.form`
-  position: fixed;
-  display: inline-block;
-  top: 50px;
-  left: 50px;
-
-  & CheckStyled:hover {
-    background-color: #f1f1f1;
-  }
-
-  &:hover div {
-    display: block;
-  }
-
-  &:hover button {
-    background-color: #3e8e41;
-  }
-`;
-
-export const CheckStyled = styled.button``;
-
-export const BtnDropStyled = styled.button`
-  background-color: #4caf50;
-  color: white;
-  padding: 16px;
-  font-size: 16px;
-  border: none;
-`;
-
-export const DropContentStyled = styled.div`
-  display: none;
-  position: absolute;
-  background-color: #f9f9f9;
-  min-width: 160px;
-  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-  z-index: 1;
-
-  & button {
-    color: black;
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
-  }
-
-  & button:hover {
-    display: flex;
-    flex-direction: column;
-    background-color: #f1f1f1;
-  }
 `;
 
 export const BtnMoreStyled = styled(BtnStyled)`
@@ -105,4 +73,32 @@ export const BoxStyled = styled(Box)`
   top: 150px;
   left: 15px;
   width: 200px;
+`;
+
+export const InputStyled = styled(InputLabel)`
+  color: #5736a3;
+  &[data-shrink="true"] {
+    max-width: calc(133% - 48px);
+    transform: translate(14px, -19px) scale(0.75);
+  }
+`;
+
+export const SelectStyled = styled(Select)`
+  background-color: #ebd8ff;
+`;
+
+export const MenuItemStyled = styled(MenuItem)`
+  color: #5736a3;
+`;
+
+export const Header1Styled = styled.h1`
+  width: 500px;
+  margin: 0 auto;
+  font-size: 36px;
+`;
+
+export const Header2Styled = styled.h2`
+  width: 500px;
+  margin: 40px auto;
+  font-size: 30px;
 `;

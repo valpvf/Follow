@@ -40,7 +40,6 @@ const Card = ({ mark }) => {
       : userRender.filter((el) => el.isChanged === mark);
 
   const handleClick = (data) => {
-    console.log("data", data);
     dispatch(changeUser(data));
   };
 

@@ -57,7 +57,6 @@ const userSlice = createSlice({
         state.isLoading = true;
       })
       .addCase(changeUser.fulfilled, (state, { payload, meta }) => {
-        console.log("payload", payload);
         state.isLoading = false;
         state.error = null;
         state.part = meta.arg[3];

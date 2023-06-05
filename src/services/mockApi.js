@@ -24,8 +24,6 @@ export const changeUserApi = async (id, result) => {
     })
     .then((res) => {
       const { data } = res;
-      console.log("data", data);
       return data;
     });
 };
-

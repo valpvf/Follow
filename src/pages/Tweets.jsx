@@ -1,4 +1,3 @@
-// import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 import Card from "../conponents/Card/Card";
@@ -6,15 +5,16 @@ import {
   BoxStyled,
   BtnMoreStyled,
   GoHomeImgStyled,
+  InputStyled,
   LinkStyled,
+  MenuItemStyled,
   SectionStyled,
+  SelectStyled,
   WrapStyled,
 } from "./pages.syled";
 import { selectorPart, selectorUsers } from "../redux/userSelector";
 import { changePart } from "../redux/userSlice";
-import InputLabel from "@mui/material/InputLabel";
 import FormControl from "@mui/material/FormControl";
-import { MenuItem, Select } from "@mui/material";
 import { useState } from "react";
 
 const Tweets = () => {
@@ -36,32 +36,24 @@ const Tweets = () => {
     <WrapStyled>
       <LinkStyled to="home">
         <GoHomeImgStyled />
-        Go Home
+        Back
       </LinkStyled>
-      {/* <DropdownStyled>
-        <BtnDropStyled>Show</BtnDropStyled>
-        <DropContentStyled>
-          <CheckStyled type="radio">all</CheckStyled>
-          <CheckStyled type="radio">follow</CheckStyled>
-          <CheckStyled type="radio">followings</CheckStyled>
-        </DropContentStyled>
-      </DropdownStyled> */}
       <BoxStyled>
         <FormControl fullWidth>
-          <InputLabel id="demo-simple-select-label">
+          <InputStyled id="demo-simple-select-label">
             Show tweets
-          </InputLabel>
-          <Select
+          </InputStyled>
+          <SelectStyled
             labelId="demo-simple-select-label"
             id="demo-simple-select"
             value={mark}
             label="show"
             onChange={handleChange}
           >
-            <MenuItem value={''}>all</MenuItem>
-            <MenuItem value={false}>follow</MenuItem>
-            <MenuItem value={true}>followings</MenuItem>
-          </Select>
+            <MenuItemStyled value={""}>all</MenuItemStyled>
+            <MenuItemStyled value={false}>follow</MenuItemStyled>
+            <MenuItemStyled value={true}>followings</MenuItemStyled>
+          </SelectStyled>
         </FormControl>
       </BoxStyled>
       <SectionStyled>
