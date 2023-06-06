@@ -24,12 +24,12 @@ Create Tweet Cards and add one-click interactivity.
 # Additional task
 
 1. Create routing with React router.
-2. If the user comes in via a route that does not exist, they need to be redirected to Home '/' - the home page. /tweets' - tweets component, a page showing tweets.
-3. Tweet pages should have a "back" link that takes you to our main site.
+2. If the user comes in via a route that does not exist, they need to be redirected to `Home '/'` - the home page. `'/tweets'` - tweets component, a page showing tweets.
+3. Tweet pages should have a `"back"` link that takes you to our main site.
 
 ## Increasing complexity task
 
-Add a filter. It should be a dropdown with 3 options (design as you like): show all, follow, followers.\
+Add a `filter`. It should be a dropdown with 3 options (design as you like): show all, follow, followers.\
 show `all` - show all tweets.\
 `follow` - show tweets with follow status.\
 `followers` - show tweets with follow status.
