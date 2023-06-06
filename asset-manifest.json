@@ -1,28 +1,28 @@
 {
   "files": {
-    "main.css": "/static/css/main.fcd52635.css",
-    "main.js": "/static/js/main.e7714d7f.js",
-    "static/js/773.3847ce1a.chunk.js": "/static/js/773.3847ce1a.chunk.js",
-    "static/js/382.72900cc4.chunk.js": "/static/js/382.72900cc4.chunk.js",
-    "static/js/895.021088be.chunk.js": "/static/js/895.021088be.chunk.js",
-    "static/media/Montserrat-SemiBold.eot": "/static/media/Montserrat-SemiBold.262fb106797e141d7adf.eot",
-    "static/media/Montserrat-SemiBold.ttf": "/static/media/Montserrat-SemiBold.8771894959de6e640354.ttf",
-    "static/media/Montserrat-Medium.eot": "/static/media/Montserrat-Medium.418e43db3ef66b97a7ef.eot",
-    "static/media/Montserrat-Medium.ttf": "/static/media/Montserrat-Medium.693c527aec0de211945e.ttf",
-    "static/media/Montserrat-Medium.woff": "/static/media/Montserrat-Medium.d42dad28f6470e5162c2.woff",
-    "static/media/Montserrat-SemiBold.woff": "/static/media/Montserrat-SemiBold.197213592de7a2a62e06.woff",
-    "static/media/wellcome.png": "/static/media/wellcome.701ba5254a77a8d9d774.png",
-    "static/media/info.png": "/static/media/info.86562350dcaa714a1442.png",
-    "static/media/sprite.svg": "/static/media/sprite.d43eca8b9ba8bdcf904e22fe57869a53.svg",
-    "index.html": "/index.html",
-    "main.fcd52635.css.map": "/static/css/main.fcd52635.css.map",
-    "main.e7714d7f.js.map": "/static/js/main.e7714d7f.js.map",
-    "773.3847ce1a.chunk.js.map": "/static/js/773.3847ce1a.chunk.js.map",
-    "382.72900cc4.chunk.js.map": "/static/js/382.72900cc4.chunk.js.map",
-    "895.021088be.chunk.js.map": "/static/js/895.021088be.chunk.js.map"
+    "main.css": "/follow/static/css/main.8515ce9b.css",
+    "main.js": "/follow/static/js/main.f84905a8.js",
+    "static/js/773.3847ce1a.chunk.js": "/follow/static/js/773.3847ce1a.chunk.js",
+    "static/js/382.72900cc4.chunk.js": "/follow/static/js/382.72900cc4.chunk.js",
+    "static/js/895.021088be.chunk.js": "/follow/static/js/895.021088be.chunk.js",
+    "static/media/Montserrat-SemiBold.eot": "/follow/static/media/Montserrat-SemiBold.262fb106797e141d7adf.eot",
+    "static/media/Montserrat-SemiBold.ttf": "/follow/static/media/Montserrat-SemiBold.8771894959de6e640354.ttf",
+    "static/media/Montserrat-Medium.eot": "/follow/static/media/Montserrat-Medium.418e43db3ef66b97a7ef.eot",
+    "static/media/Montserrat-Medium.ttf": "/follow/static/media/Montserrat-Medium.693c527aec0de211945e.ttf",
+    "static/media/Montserrat-Medium.woff": "/follow/static/media/Montserrat-Medium.d42dad28f6470e5162c2.woff",
+    "static/media/Montserrat-SemiBold.woff": "/follow/static/media/Montserrat-SemiBold.197213592de7a2a62e06.woff",
+    "static/media/wellcome.png": "/follow/static/media/wellcome.701ba5254a77a8d9d774.png",
+    "static/media/info.png": "/follow/static/media/info.86562350dcaa714a1442.png",
+    "static/media/sprite.svg": "/follow/static/media/sprite.d43eca8b9ba8bdcf904e22fe57869a53.svg",
+    "index.html": "/follow/index.html",
+    "main.8515ce9b.css.map": "/follow/static/css/main.8515ce9b.css.map",
+    "main.f84905a8.js.map": "/follow/static/js/main.f84905a8.js.map",
+    "773.3847ce1a.chunk.js.map": "/follow/static/js/773.3847ce1a.chunk.js.map",
+    "382.72900cc4.chunk.js.map": "/follow/static/js/382.72900cc4.chunk.js.map",
+    "895.021088be.chunk.js.map": "/follow/static/js/895.021088be.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.fcd52635.css",
-    "static/js/main.e7714d7f.js"
+    "static/css/main.8515ce9b.css",
+    "static/js/main.f84905a8.js"
   ]
 }
