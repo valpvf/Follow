@@ -5,7 +5,6 @@ const initialState = {
   user: [],
   isLoading: false,
   error: null,
-  isChnged: false,
   part: 1,
 };
 
@@ -15,22 +14,6 @@ const userSlice = createSlice({
   reducers: {
     changePart: (state, { payload }) => {
       state.part += payload;
-  // const idx = state.user.findIndex(
-  //       (el) => el.id === payload.payload
-  //     );
-  //     const follower = state.user[idx].followers;
-  //     state.user[idx] =
-  //       state.user[idx].isChanged === false
-  //         ? {
-  //             ...state.user[idx],
-  //             isChanged: true,
-  //             followers: follower + 1,
-  //           }
-  //         : {
-  //             ...state.user[idx],
-  //             isChanged: false,
-  //             followers: follower - 1,
-  //           };
     },
   },
   extraReducers: (builder) => {
@@ -71,5 +54,6 @@ const userSlice = createSlice({
       });
   },
 });
+
 export const { changePart } = userSlice.actions;
 export default userSlice.reducer;

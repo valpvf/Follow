@@ -1,3 +1,7 @@
+import { useDispatch, useSelector } from "react-redux";
+import { useEffect, useMemo } from "react";
+import PropTypes from "prop-types";
+
 import {
   BoxStyled,
   BtnStyled,
@@ -16,9 +20,6 @@ import {
   selectorPart,
   selectorUsers,
 } from "../../redux/userSelector";
-import { useDispatch, useSelector } from "react-redux";
-// import { changeUser } from "../../redux/userSlice";
-import { useEffect, useMemo } from "react";
 import { changeUser, getUser } from "../../redux/userOperations";
 
 const Card = ({ mark }) => {
@@ -88,3 +89,7 @@ const Card = ({ mark }) => {
 };
 
 export default Card;
+
+Card.propTypes = {
+  mark: PropTypes.oneOfType([PropTypes.bool, PropTypes.string]),
+};

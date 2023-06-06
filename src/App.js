@@ -1,18 +1,23 @@
-// import logo from './logo.svg';
 import { Route, Routes } from "react-router-dom";
-import "./App.css";
-import Home from "./pages/Home";
-import Tweets from "./pages/Tweets";
+import { Suspense } from "react";
+
+import Home from "./pages/HomePages";
+import Tweets from "./pages/TweetsPages";
+
+// const Home = lazy(() => import("./pages/HomePages"));
+// const Tweets = lazy(() => import("./pages/TweetsPages"));
 
 function App() {
   return (
     <>
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route index element={<Home />} />
-        <Route path="tweets" element={<Tweets />} />
-        <Route path="*" element={<Home />} />
-      </Routes>
+      <Suspense fallback={<h1>Loading ...</h1>}>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route index element={<Home />} />
+          <Route path="tweets" element={<Tweets />} />
+          <Route path="*" element={<Home />} />
+        </Routes>
+      </Suspense>
     </>
   );
 }

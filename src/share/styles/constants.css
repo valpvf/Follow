@@ -1,0 +1,8 @@
+:root {
+    --primary-color: #EBD8FF;
+    --active-color: #5CD3A8;
+    --text-color: #373737;
+    --bg-secondary: #766A92;
+    --bg-color: linear-gradient(114.99deg, #471CA9 -0.99%, #5736A3 54.28%, #4B2A99 78.99%);
+    --shadow: 0px 3.43693px 3.43693px rgba(0, 0, 0, 0.25);
+}

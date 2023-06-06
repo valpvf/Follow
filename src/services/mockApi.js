@@ -8,7 +8,7 @@ export const getUserApi = async (number) => {
     .get("card", {
       params: {
         page: number,
-        limit: 99,
+        // limit: 99,
       },
     })
     .then((res) => {

@@ -19,7 +19,7 @@ export const SectionHomeStyled = styled.section`
   margin-bottom: 20px;
   text-align: center;
   background-color: #766a92;
-  color: #ebd8ff;
+  color: var(--primary-color);
 `;
 
 export const ImgStyled = styled.img`
@@ -39,6 +39,11 @@ export const LinkStyled = styled(Link)`
   font-weight: 700;
   color: #5736a3;
   font-size: 26px;
+  transition: color 300ms cubic-bezier(0.4, 0, 0.2, 1);
+
+  &:hover {
+    color: var(--active-color);
+  }
 `;
 
 export const LinkToTweetsStyled = styled(Link)`
@@ -48,19 +53,30 @@ export const LinkToTweetsStyled = styled(Link)`
   margin-top: 60px;
   color: #004381;
   font-size: 24px;
+  transition: color 300ms cubic-bezier(0.4, 0, 0.2, 1);
+
+  &:hover {
+    color: rgba(106, 164, 195);
+  }
 `;
 
 export const GoTweetsImgStyled = styled(FollowTheSignsIcon)`
   font-size: 48px;
   margin-left: 10px;
-  /* text-decoration: none; */
   color: #004381;
+
+  &:hover {
+    color: rgba(106, 164, 195);
+  }
 `;
 export const GoHomeImgStyled = styled(AddHomeWorkIcon)`
   font-size: 56px;
   margin-right: 10px;
-  /* text-decoration: none; */
   color: #5736a3;
+
+  &:hover {
+    color: var(--active-color);
+  }
 `;
 
 export const BtnMoreStyled = styled(BtnStyled)`
@@ -84,7 +100,7 @@ export const InputStyled = styled(InputLabel)`
 `;
 
 export const SelectStyled = styled(Select)`
-  background-color: #ebd8ff;
+  background-color: var(--primary-color);
 `;
 
 export const MenuItemStyled = styled(MenuItem)`

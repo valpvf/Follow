@@ -1,4 +1,6 @@
 import { useDispatch, useSelector } from "react-redux";
+import { useState } from "react";
+import FormControl from "@mui/material/FormControl";
 
 import Card from "../conponents/Card/Card";
 import {
@@ -14,8 +16,6 @@ import {
 } from "./pages.syled";
 import { selectorPart, selectorUsers } from "../redux/userSelector";
 import { changePart } from "../redux/userSlice";
-import FormControl from "@mui/material/FormControl";
-import { useState } from "react";
 
 const Tweets = () => {
   const dispatch = useDispatch();
