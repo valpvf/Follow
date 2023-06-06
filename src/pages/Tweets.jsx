@@ -34,13 +34,13 @@ const Tweets = () => {
 
   return (
     <WrapStyled>
-      <LinkStyled to="home">
+      <LinkStyled to="/">
         <GoHomeImgStyled />
         Back
       </LinkStyled>
       <BoxStyled>
         <FormControl fullWidth>
-          <InputStyled id="demo-simple-select-label">
+          <InputStyled id="demo-simple-select-label" name="type">
             Show tweets
           </InputStyled>
           <SelectStyled
